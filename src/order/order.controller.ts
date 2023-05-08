@@ -35,6 +35,11 @@ export class OrderController {
     return this.orderService.remove(id);
   }
 
+  @Post('/order-multiple')
+  ordersMultiple(@Body() createOrderDto: CreateOrderDto[] ) {
+    return this.orderService.ordersMultiple(createOrderDto);
+  }
+
   @Get('user/:id')
   ordersUser(@Param('id') id: string) {
     return this.orderService.ordersUser(id);

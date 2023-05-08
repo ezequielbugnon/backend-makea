@@ -55,4 +55,10 @@ export class OrderService {
       },
     })
   }
+
+  async ordersMultiple(createOrderDto: CreateOrderDto[]) {
+    return await this.prisma.order.createMany({
+      data: createOrderDto
+    })
+  }
 }
