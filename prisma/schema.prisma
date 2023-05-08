@@ -23,6 +23,7 @@ model Catalogue {
 }
 
 model Order {
+  id String @id @default(uuid())
   catalogue Catalogue @relation("catalogue", fields: [catalogueId], references: [id])
   catalogueId String
   user User @relation("user", fields: [userId], references: [id])
@@ -30,7 +31,6 @@ model Order {
   creted_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  @@id([catalogueId, userId])
   @@map("orders")
 }
 
